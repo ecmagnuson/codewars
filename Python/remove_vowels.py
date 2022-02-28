@@ -4,6 +4,9 @@ For example, the string "This website is for losers LOL!" would become "Ths wbst
 Note: for this kata y isn't considered a vowel.
  """
 
+string = 'This website is for losers LOL!'
+
+
 def remove_vowels(s: str) -> str:
     vowels = 'aeiou'
     s = s.lower()
@@ -12,12 +15,10 @@ def remove_vowels(s: str) -> str:
             s = s.replace(letter,"")
     return s
 
-string = 'This website is for losers LOL!'
-print(remove_vowels(string))
-
 #better
 def remove_vow(string):
     vowels = 'aeiou'
     return ''.join([letter for letter in string.lower() if letter not in vowels])
 
+print(remove_vowels(string))
 print(remove_vow(string))
