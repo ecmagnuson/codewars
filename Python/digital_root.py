@@ -8,19 +8,18 @@ The input will be a non-negative integer.
 """ Cant iterate over an int but can a str """
 
 #works
-def digital_root(n: int) -> str:
+def digital_root(n: str) -> str:
     n = str(n)
     if not len(n) == 1:
         n = digital_root(sum([int(num) for num in n]))
     return n
-print(digital_root(493193))
+print(digital_root('493193'))
 
 #doesnt work
-def root(n: int) -> str:
+def root(n: str) -> str:
     n = str(n)
     if not len(n) == 1:
         n = sum([int(num) for num in n])
         root(n)
     return n
-print(root(493193))
-
+print(root('493193'))
