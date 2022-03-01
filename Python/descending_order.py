@@ -5,10 +5,12 @@ Input: 42145 Output: 54421
 Input: 145263 Output: 654321
 Input: 123456789 Output: 987654321
 """
-
+#initial
 def descending_order(num: int) -> int:
-    num = str(num)
-    numsorted = sorted([number for number in num], reverse = True)
-    return ''.join(numsorted)
+    return int(''.join(sorted([number for number in str(num)], reverse = True)))
 
-print(descending_order(123456789))
+#no reason to use comprehension as sorted already puts in list
+def descending(num: int) -> int:
+    return int(''.join(sorted(str(num), reverse = True)))
+
+print(descending(123456789))
