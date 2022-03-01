@@ -7,7 +7,7 @@ The input will be a non-negative integer.
 
 """ Cant iterate over an int but can a str """
 
-
+#works
 def digital_root(n: int) -> str:
     n = str(n)
     if not len(n) == 1:
@@ -15,7 +15,7 @@ def digital_root(n: int) -> str:
     return n
 print(digital_root(493193))
 
-
+#doesnt work
 def root(n: int) -> str:
     n = str(n)
     if not len(n) == 1:
