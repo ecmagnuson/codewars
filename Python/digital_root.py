@@ -11,9 +11,16 @@ The input will be a non-negative integer.
 def digital_root(n: int) -> str:
     n = str(n)
     if not len(n) == 1:
-        n = sum([int(num) for num in n])
-        digital_root(n)
+        n = digital_root(sum([int(num) for num in n]))
     return n
-
 print(digital_root(493193))
+
+
+def root(n: int) -> str:
+    n = str(n)
+    if not len(n) == 1:
+        n = sum([int(num) for num in n])
+        root(n)
+    return n
+print(root(493193))
 
