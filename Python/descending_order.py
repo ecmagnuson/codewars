@@ -13,4 +13,8 @@ def descending_order(num: int) -> int:
 def descending(num: int) -> int:
     return int(''.join(sorted(str(num), reverse = True)))
 
-print(descending(123456789))
+def desc(num):
+    num = str(num)
+    return int(num[::-1])
+
+print(desc(123456789))
