@@ -1,6 +1,10 @@
-from typing import List
+def is_free(is_free: bool):
+    return True if is_free else False
 
-def foo(lst: List[int]) -> str:
-    return 'hi'
+def hangout(is_free, activity):
+    if is_free(is_free) is False:
+        return "We no hangout :("
 
-print(foo([1,2,3]))
+        
+print(hangout(True, 'sd'))
+
