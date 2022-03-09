@@ -7,17 +7,17 @@ Note: for this kata y isn't considered a vowel.
 string = 'This website is for losers LOL!'
 
 
-""" def remove_vowels(s: str) -> str:
+def remove_vowels(s: str) -> str:
     vowels = 'aeiou'
     s = s.lower()
     for letter in vowels:
-        if letter in s:
+        if letter in s:   #This in keyword is probably hiding a lot of code
             s = s.replace(letter,"")
-    return s """
+    return s
 
 
 def remove_vow(string):
     return ''.join([letter for letter in string.lower() if letter not in 'aeiou'])
 
-""" print(remove_vowels(string)) """
+print(remove_vowels(string))
 print(remove_vow(string))
