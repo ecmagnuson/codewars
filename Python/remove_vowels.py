@@ -4,7 +4,7 @@ For example, the string "This website is for losers LOL!" would become "Ths wbst
 Note: for this kata y isn't considered a vowel.
  """
 
-string = 'This website is for losers LOL!'
+string = 'All work and no play makes Jack a dull boy'
 
 
 def remove_vowels(s: str) -> str:
