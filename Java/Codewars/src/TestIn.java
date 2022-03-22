@@ -4,6 +4,7 @@ public class TestIn {
 	public static String removeVowels(char[] letters, String str) {
 		
 		
+		
 		return "";
 	}
 
@@ -11,5 +12,6 @@ public class TestIn {
 		
 		char[] vowels = {'a', 'e', 'i', 'o', 'u'};
 		String sentence = "All work and no play makes Jack a dull boy";
+		System.out.println(removeVowels(vowels, sentence));
 	}
 }

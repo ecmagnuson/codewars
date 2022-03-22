@@ -18,7 +18,7 @@ public class RemoveVowels {
 
 		// add to list when not in vowel.
 		for (int i = 0; i < strChars.length; i++) {
-			if (strChars[i] != 'o') {
+			if (strChars[i] != 'o') {   //if not in
 				strCharsList.add(strChars[i]);
 			}
 		}
