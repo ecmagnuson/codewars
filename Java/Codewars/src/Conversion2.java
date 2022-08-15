@@ -50,43 +50,34 @@ public class Conversion2 {
 
 		StringBuilder convertedNum = new StringBuilder();
 
-		if (rns.containsKey(n)) {
-			return rns.get(n);
-		}
+		int digitsLeft = n - rns.floorKey(n); // get the digits left from floor
+		int currentFloorKey = rns.floorKey(n);
+		String currentFloorValue = rns.get(rns.floorKey(n)); // the value of the current floor
 
-		// append the floorKey
-		convertedNum.append(rns.get(rns.floorKey(n)));
+		System.out.println(digitsLeft);
+		System.out.println(currentFloorKey);
+		System.out.println(currentFloorValue);
+		System.out.println();
 
-		int digitsLeft = n - rns.floorKey(n); // get the digits left
-		System.out.println("digitsLeft after first append: " + digitsLeft);
+		convertedNum.append(currentFloorValue);
+	
+		digitsLeft = Math.abs(digitsLeft =- currentFloorKey);
+		currentFloorValue = rns.get(rns.floorKey(digitsLeft));
+		
+		convertedNum.append(currentFloorValue);
 
-		// have the digits left now.
 
-		// if the digits left are present in the map then append else loop
-		if (rns.containsKey(digitsLeft)) {
-			convertedNum.append(rns.get(digitsLeft));
-		}
-
-		else {
-			convertedNum.append(rns.get(rns.floorKey(digitsLeft)).repeat(digitsLeft)); //seems complicated
-			digitsLeft = digitsLeft - rns.floorKey(digitsLeft);
-			System.out.println(digitsLeft + " after next");
-		}
-
-//		else {
-//			System.out.println(rns.get(rns.floorKey(digitsLeft)));
-//
-//			for (int i = 0; i < digitsLeft; i++) {
-//				convertedNum.append(rns.get(rns.floorKey(digitsLeft)));
-//			}
-//		}
 		return convertedNum.toString();
 	}
 
 	public static void main(String[] args) {
 		Conversion2 c = new Conversion2();
 
-		System.out.println(c.solution(16));
+		System.out.println(c.solution(5) + " returned");
 	}
 
 }
+
+/*
+ * if (rns.containsKey(n)) { return rns.get(n); }
+ */
