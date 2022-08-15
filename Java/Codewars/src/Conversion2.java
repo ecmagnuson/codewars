@@ -50,27 +50,36 @@ public class Conversion2 {
 
 		StringBuilder convertedNum = new StringBuilder();
 
-		// floorKey returns the lower-key closest to the given key. returns the key if exact
-		// match.
-		//I.e. floorKey(8) returns V
-		int digitsLeft = n - rns.floorKey(n);
-		System.out.println("digitsLeft: " + digitsLeft);
+		if (rns.containsKey(n)) {
+			return rns.get(n);
+		}
 
-		//append the floorKey
+		// append the floorKey
 		convertedNum.append(rns.get(rns.floorKey(n)));
 
-		//if the digits left are present in the map then append else loop
-		if (rns.containsKey(digitsLeft)) { 
-			convertedNum.append(rns.get(digitsLeft));
-		} 
-		
-		else {
-			System.out.println(rns.get(rns.floorKey(digitsLeft)));
+		int digitsLeft = n - rns.floorKey(n); // get the digits left
+		System.out.println("digitsLeft after first append: " + digitsLeft);
 
-			for (int i = 0; i < digitsLeft; i++) {
-				convertedNum.append(rns.get(rns.floorKey(digitsLeft)));
-			}
+		// have the digits left now.
+
+		// if the digits left are present in the map then append else loop
+		if (rns.containsKey(digitsLeft)) {
+			convertedNum.append(rns.get(digitsLeft));
 		}
+
+		else {
+			convertedNum.append(rns.get(rns.floorKey(digitsLeft)).repeat(digitsLeft)); //seems complicated
+			digitsLeft = digitsLeft - rns.floorKey(digitsLeft);
+			System.out.println(digitsLeft + " after next");
+		}
+
+//		else {
+//			System.out.println(rns.get(rns.floorKey(digitsLeft)));
+//
+//			for (int i = 0; i < digitsLeft; i++) {
+//				convertedNum.append(rns.get(rns.floorKey(digitsLeft)));
+//			}
+//		}
 		return convertedNum.toString();
 	}
 
