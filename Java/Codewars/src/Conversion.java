@@ -3,8 +3,8 @@ import java.util.TreeMap;
 
 public class Conversion {
 
-	public String solution(int n) {
-		NavigableMap<Integer, String> rns = new TreeMap<>();
+	private NavigableMap<Integer, String> rns = new TreeMap<>();
+	{
 		rns.put(1, "I");
 		rns.put(4, "IV");
 		rns.put(5, "V");
@@ -18,9 +18,11 @@ public class Conversion {
 		rns.put(500, "D");
 		rns.put(900, "CM");
 		rns.put(1000, "M");
+	}
+
+	public String solution(int n) {
 
 		StringBuilder convertedNum = new StringBuilder();
-		
 		int digitsLeft = -1;
 		int currentFloorKey = -1;
 		String currentFloorValue = "";
@@ -33,6 +35,11 @@ public class Conversion {
 			convertedNum.append(currentFloorValue);
 		}
 		return convertedNum.toString();
+	}
+
+	public static void main(String[] args) {
+		Conversion c = new Conversion();
+		System.out.println(c.solution(501));
 	}
 
 }
