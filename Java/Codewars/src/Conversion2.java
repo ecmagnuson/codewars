@@ -54,18 +54,25 @@ public class Conversion2 {
 		int currentFloorKey = rns.floorKey(n);
 		String currentFloorValue = rns.get(rns.floorKey(n)); // the value of the current floor
 
-		System.out.println(digitsLeft);
-		System.out.println(currentFloorKey);
-		System.out.println(currentFloorValue);
-		System.out.println();
+		// if present in the map just return
+		if (rns.containsKey(n)) {
+			return rns.get(n);
+		}
 
-		convertedNum.append(currentFloorValue);
-	
-		digitsLeft = Math.abs(digitsLeft =- currentFloorKey);
-		currentFloorValue = rns.get(rns.floorKey(digitsLeft));
-		
-		convertedNum.append(currentFloorValue);
+		while (digitsLeft != 0) {
 
+			convertedNum.append(currentFloorValue);
+
+			digitsLeft = Math.abs(digitsLeft =- currentFloorKey);
+			currentFloorValue = rns.get(rns.floorKey(digitsLeft));
+
+			convertedNum.append(currentFloorValue);
+
+			System.out.println(digitsLeft);
+			System.out.println(currentFloorKey);
+			System.out.println(currentFloorValue);
+
+		}
 
 		return convertedNum.toString();
 	}
@@ -73,7 +80,7 @@ public class Conversion2 {
 	public static void main(String[] args) {
 		Conversion2 c = new Conversion2();
 
-		System.out.println(c.solution(5) + " returned");
+		System.out.println(c.solution(11) + " returned");
 	}
 
 }
