@@ -47,40 +47,34 @@ public class Conversion2 {
 		rns.put(10, "X");
 		rns.put(40, "XL");
 		rns.put(50, "L");
+		rns.put(90, "XC");
+		rns.put(100, "C");
+		rns.put(400, "CD");
+		rns.put(500, "D");
+		rns.put(900, "CM");
+		rns.put(1000, "M");
 
 		StringBuilder convertedNum = new StringBuilder();
 
-		int digitsLeft = n - rns.floorKey(n); // get the digits left from floor
-		int currentFloorKey = rns.floorKey(n);
-		String currentFloorValue = rns.get(rns.floorKey(n)); // the value of the current floor
-
-		// if present in the map just return
-		if (rns.containsKey(n)) {
-			return rns.get(n);
-		}
+		int digitsLeft = -1; // get the digits left from floor
+		int currentFloorKey = -1; // the current int that is below digitsLeft
+		String currentFloorValue = ""; // the value of the current floor
 
 		while (digitsLeft != 0) {
+			digitsLeft = n - rns.floorKey(n); // get the digits left from floo
+			currentFloorKey = rns.floorKey(n);
+			currentFloorValue = rns.get(rns.floorKey(n)); // the value of the current floor
+			n = digitsLeft; // update n
 
 			convertedNum.append(currentFloorValue);
-
-			digitsLeft = Math.abs(digitsLeft =- currentFloorKey);
-			currentFloorValue = rns.get(rns.floorKey(digitsLeft));
-
-			convertedNum.append(currentFloorValue);
-
-			System.out.println(digitsLeft);
-			System.out.println(currentFloorKey);
-			System.out.println(currentFloorValue);
-
 		}
-
 		return convertedNum.toString();
 	}
 
 	public static void main(String[] args) {
 		Conversion2 c = new Conversion2();
 
-		System.out.println(c.solution(11) + " returned");
+		System.out.println(c.solution(950));
 	}
 
 }
