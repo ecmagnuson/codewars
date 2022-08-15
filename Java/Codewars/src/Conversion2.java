@@ -1,5 +1,5 @@
 
-import java.util.Map;
+import java.util.NavigableMap;
 import java.util.TreeMap;
 
 /*
@@ -36,23 +36,48 @@ import java.util.TreeMap;
 public class Conversion2 {
 
 	public String solution(int n) {
-		Map<Integer, String> rns = TreeMap.of(1, "I", 4, "IV", 5, "V", 9, "IX", 10, "X");
+		// TreeMap sorted RB-BST Map
+		// https://www.javatpoint.com/java-treemap
+		// NavigableMap is the Interface
+		NavigableMap<Integer, String> rns = new TreeMap<>();
+		rns.put(1, "I");
+		rns.put(4, "IV");
+		rns.put(5, "V");
+		rns.put(9, "IX");
+		rns.put(10, "X");
+		rns.put(40, "XL");
+		rns.put(50, "L");
 
-		//Handle cases that are in the Map already
-		if (rns.get(n) != null) {
-			return rns.get(n);
+		StringBuilder convertedNum = new StringBuilder();
+
+		// floorKey returns the lower-key closest to the given key. returns the key if exact
+		// match.
+		//I.e. floorKey(8) returns V
+		int digitsLeft = n - rns.floorKey(n);
+		System.out.println("digitsLeft: " + digitsLeft);
+
+		//append the floorKey
+		convertedNum.append(rns.get(rns.floorKey(n)));
+
+		//if the digits left are present in the map then append else loop
+		if (rns.containsKey(digitsLeft)) { 
+			convertedNum.append(rns.get(digitsLeft));
+		} 
+		
+		else {
+			System.out.println(rns.get(rns.floorKey(digitsLeft)));
+
+			for (int i = 0; i < digitsLeft; i++) {
+				convertedNum.append(rns.get(rns.floorKey(digitsLeft)));
+			}
 		}
-		
-		//now determine what its closest to..
-		int min =
-		
-		return null;
-
+		return convertedNum.toString();
 	}
 
 	public static void main(String[] args) {
 		Conversion2 c = new Conversion2();
-		System.out.println(c.solution(5));
+
+		System.out.println(c.solution(16));
 	}
 
 }
