@@ -39,7 +39,7 @@ public class Conversion {
 
 	public static void main(String[] args) {
 		Conversion c = new Conversion();
-		System.out.println(c.solution(501));
+		System.out.println(c.solution(539));
 	}
 
 }

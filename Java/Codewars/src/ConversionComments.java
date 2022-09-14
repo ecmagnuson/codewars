@@ -37,6 +37,11 @@ public class ConversionComments {
 		 * X Likewise, if it was 25, still find 10. The TreeMap with NavgableMap has the
 		 * method floorKey to do this so it made it much easier to accomplish this..
 		 */
+		/*
+		 * This was my first time using and learning about this data structure. It's
+		 * very neat. I think we spoke about it when we spoke about it implementation as
+		 * a red black BST
+		 */
 		while (digitsLeft != 0) {
 			digitsLeft = n - rns.floorKey(n);
 			currentFloorKey = rns.floorKey(n);
